@@ -1,8 +1,13 @@
 import React from 'react'
 
-const PlayerDetails = ({ setShowDetails, playerDetails }) => {
+const PlayerDetails = ({ setShowDetails, playerDetails, setDetails }) => {
 
     if (!playerDetails) {
+        setShowDetails(false)
+    }
+
+    const onPlayerDetailEditHandler = () => {
+        setDetails(playerDetails)
         setShowDetails(false)
     }
 
@@ -49,7 +54,7 @@ const PlayerDetails = ({ setShowDetails, playerDetails }) => {
             </div>
             <div className='w-[70%] border-2 h-[100vh] bg-teal-500'>
                 <div>
-                    <button onClick={() => setShowDetails(false)} className='float-end bg-orange-500 mr-10 mt-3'>Edit</button>
+                    <button onClick={onPlayerDetailEditHandler} className='float-end bg-orange-500 mr-10 mt-3'>Edit</button>
                 </div>
                 <div className='flex justify-center items-center mt-44'>
                     <p>{playerDetails?.career}</p>

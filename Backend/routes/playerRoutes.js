@@ -6,6 +6,6 @@ const { addPlayer, getAllPlayer, updatePlayer } = require("../Controllers/player
 
 router.post("/add", addPlayer);
 router.get("/get", getAllPlayer);
-router.put("/update", updatePlayer);
+router.put("/update/:id", updatePlayer);
 
 module.exports = router;

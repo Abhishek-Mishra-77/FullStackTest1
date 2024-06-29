@@ -35,13 +35,23 @@ const DetailsPage = () => {
             }
         }
         onGetAllPlayerHandler()
-    }, [])
+    }, [showDetails , details])
 
     const onSubmitDetailsHandler = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:4000/add", { details })
-            console.log(response)
+
+            if (playerDetails) {
+
+                const response = await axios.put(`http://localhost:4000/update/${playerDetails?.id}`, { details: details })
+                console.log(response)
+            }
+            else {
+                const response = await axios.post("http://localhost:4000/add", { details })
+                console.log(response)
+
+            }
+
 
             setDetails((prev) => ({
                 ...prev,
@@ -57,20 +67,21 @@ const DetailsPage = () => {
                 wickets: "",
                 average: ""
             }))
+            setPlayerDetails(null)
         }
         catch (error) {
             console.log(error)
         }
     }
 
-     const onSearchPlayerHandler = (name) => {
-          if(!name) {
+    const onSearchPlayerHandler = (name) => {
+        if (!name) {
             return;
-          }
-          const selectedPlayer = allPlayer.find((player) => player.name === name);
-          console.log(selectedPlayer)
-          setPlayerDetails(selectedPlayer)
-     }
+        }
+        const selectedPlayer = allPlayer.find((player) => player.name === name);
+        console.log(selectedPlayer)
+        setPlayerDetails(selectedPlayer)
+    }
 
     return (
         <div>
@@ -83,7 +94,7 @@ const DetailsPage = () => {
 
                 <SearchPlayer onSearchPlayerHandler={onSearchPlayerHandler} showDetails={showDetails} setShowDetails={setShowDetails} />
 
-            </div> : <PlayerDetails playerDetails={playerDetails} setShowDetails={setShowDetails} />}
+            </div> : <PlayerDetails setDetails={setDetails} playerDetails={playerDetails} setShowDetails={setShowDetails} />}
         </div>
     )
 }
