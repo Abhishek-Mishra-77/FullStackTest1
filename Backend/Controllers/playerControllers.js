@@ -11,7 +11,7 @@ const addPlayer = async (req, res) => {
         fifties,
         centuries,
         wickets,
-        average } = req.body;
+        average } = req.body?.details;
     try {
 
         if (!name ||
@@ -29,26 +29,46 @@ const addPlayer = async (req, res) => {
         }
 
         const newPlayer = await PlayerData.create({
-            name: "Abhshek",
-            Dob: "15",
-            PhotoUrl: "15",
-            BirthPlace: "15454",
-            Matches: "Abhshek",
-            score: "Abhshek",
-            career: "Abhshek",
-            fifties: "Abhshek",
-            centuries: "Abhshek",
-            wickets: "Abhshek",
-            average: "Abhshek",
+            name: name,
+            Dob: Dob,
+            PhotoUrl: PhotoUrl,
+            BirthPlace: BirthPlace,
+            Matches: Matches,
+            score: score,
+            career: career,
+            fifties: fifties,
+            centuries: centuries,
+            wickets: wickets,
+            average: average,
 
         });
         return res
             .status(201)
-            .json({ message: "User created successfully", newPlayer });
+            .json({ message: "Player created successfully", newPlayer });
     }
     catch (error) {
         return res.status(500).json({ error: "Internal Server Error" });
     }
 }
 
-module.exports = addPlayer;
+const getAllPlayer = async (req, res) => {
+    try {
+        const players = await PlayerData.findAll();
+        return res.status(200).json(players);
+    }
+    catch (error) {
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+}
+
+const updatePlayer = async (req, res) => {
+    try {
+
+    }
+    catch (error) {
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+}
+
+
+module.exports = { addPlayer, getAllPlayer, updatePlayer };

@@ -16,19 +16,19 @@ const FormPage = ({
                 </div>
                 <div>
                     <h3>Dob</h3>
-                    <input value={details.dob} onChange={(e) => setDetails((prev) => ({ ...prev, dob: e.target.value }))} type='date' className='border-2' />
+                    <input value={details.Dob} onChange={(e) => setDetails((prev) => ({ ...prev, Dob: e.target.value }))} type='date' className='border-2' />
                 </div>
                 <div>
                     <h3>Photo URl</h3>
-                    <input value={details.photoUrl} onChange={(e) => setDetails((prev) => ({ ...prev, photoUrl: e.target.value }))} type='text' className='border-2' />
+                    <input value={details.PhotoUrl} onChange={(e) => setDetails((prev) => ({ ...prev, PhotoUrl: e.target.value }))} type='text' className='border-2' />
                 </div>
                 <div>
                     <h3>BirthPlace</h3>
-                    <input value={details.birthPlace} onChange={(e) => setDetails((prev) => ({ ...prev, birthPlace: e.target.value }))} type='text' className='border-2' />
+                    <input value={details.BirthPlace} onChange={(e) => setDetails((prev) => ({ ...prev, BirthPlace: e.target.value }))} type='text' className='border-2' />
                 </div>
                 <div>
                     <h3>Matches</h3>
-                    <input value={details.matches} onChange={(e) => setDetails((prev) => ({ ...prev, matches: e.target.value }))} type='text' className='border-2' />
+                    <input value={details.Matches} onChange={(e) => setDetails((prev) => ({ ...prev, Matches: e.target.value }))} type='text' className='border-2' />
                 </div>
                 <div>
                     <h3>score</h3>

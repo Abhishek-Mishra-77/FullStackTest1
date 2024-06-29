@@ -13,7 +13,7 @@ const PlayerData = sequelize.define("player", {
         allowNull: false,
     },
     PhotoUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
     },
     BirthPlace: {
@@ -29,7 +29,7 @@ const PlayerData = sequelize.define("player", {
         allowNull: false,
     },
     career: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
     },
     fifties: {

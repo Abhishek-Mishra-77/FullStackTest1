@@ -1,44 +1,50 @@
 import React from 'react'
 
-const PlayerDetails = ({ setShowDetails }) => {
+const PlayerDetails = ({ setShowDetails, playerDetails }) => {
+
+    if (!playerDetails) {
+        setShowDetails(false)
+    }
+
+
     return (
         <div className='flex'>
             <div className='w-[30%] border-2 h-[100vh] bg-teal-200'>
                 <div className='flex  justify-around mt-2'>
-                    <h2>Name</h2>
-                    <img src='' alt='playerImage' />
+                    <h2>{playerDetails?.name}</h2>
+                    <img src={playerDetails?.PhotoUrl} alt='playerImage' />
                 </div>
                 <div className='flex justify-around mt-2'>
                     <h2>Dob</h2>
-                    <p>Jan02222</p>
+                    <p>{playerDetails?.Dob}</p>
                 </div>
                 <div className='flex justify-around mt-2'>
                     <h2>BirthPlace</h2>
-                    <p>Bhadohi</p>
+                    <p>{playerDetails?.BirthPlace}</p>
                 </div>
                 <div className='flex justify-around mt-2'>
                     <h2>matches</h2>
-                    <p>21</p>
+                    <p>{playerDetails?.Matches}</p>
                 </div>
                 <div className='flex justify-around mt-2'>
                     <h2>Score</h2>
-                    <p>20000</p>
+                    <p>{PlayerDetails?.score}</p>
                 </div>
                 <div className='flex justify-around mt-2'>
                     <h2>fifties</h2>
-                    <p>20</p>
+                    <p>{playerDetails?.fifties}</p>
                 </div>
                 <div className='flex justify-around mt-2'>
                     <h2>centuries</h2>
-                    <p>30</p>
+                    <p>{playerDetails?.centuries}</p>
                 </div>
                 <div className='flex justify-around mt-2'>
                     <h2>wickets</h2>
-                    <p>10</p>
+                    <p>{playerDetails?.wickets}</p>
                 </div>
                 <div className='flex justify-around mt-2'>
                     <h2>Average</h2>
-                    <p>30</p>
+                    <p>{playerDetails?.average}</p>
                 </div>
             </div>
             <div className='w-[70%] border-2 h-[100vh] bg-teal-500'>
@@ -46,7 +52,7 @@ const PlayerDetails = ({ setShowDetails }) => {
                     <button onClick={() => setShowDetails(false)} className='float-end bg-orange-500 mr-10 mt-3'>Edit</button>
                 </div>
                 <div className='flex justify-center items-center mt-44'>
-                    <p>jnenfeneebeu</p>
+                    <p>{playerDetails?.career}</p>
                 </div>
             </div>
         </div>
