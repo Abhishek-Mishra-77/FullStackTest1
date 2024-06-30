@@ -35,7 +35,7 @@ const DetailsPage = () => {
             }
         }
         onGetAllPlayerHandler()
-    }, [showDetails , details])
+    }, [showDetails])
 
     const onSubmitDetailsHandler = async (e) => {
         e.preventDefault();

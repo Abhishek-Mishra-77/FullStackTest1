@@ -1,7 +1,9 @@
 const PlayerData = require("../models/playerModel");
 
 const addPlayer = async (req, res) => {
-    const { name,
+
+    const {
+        name,
         Dob,
         PhotoUrl,
         BirthPlace,
